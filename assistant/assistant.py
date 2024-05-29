@@ -2,7 +2,7 @@
 import json
 from model import OpenAIModel
 from config import YamlConfig
-from chains import AssistantChain
+from chains import OneCallChain
 
 """
 助手类，负责接收输入，调用链，返回输出。
@@ -13,7 +13,8 @@ class Assistant:
         config = YamlConfig()
         api_key = config.__getattr__("model")["openai_api_key"]
         model = OpenAIModel(model_name="gpt-3.5-turbo",api_key=api_key)
-        self.assistant_chain = AssistantChain(llm = model.create_chat_model(),assistant_message=system_message)
+        self.one_call_chain = OneCallChain(llm = model.create_chat_model(),system_message=system_message)
 
     def ask(self, question: str, history):
-        return self.assistant_chain.run(question)
+        print(history)
+        return self.one_call_chain.run(question)

@@ -7,9 +7,9 @@ from util import LOG
 """
 基础聊天链
 """
-class AssistantChain:
-    def __init__(self, llm, assistant_message: str = "你是一个通用的生活助理，能回答所有生活中的问题"):
-        system_prompt = SystemMessagePromptTemplate.from_template(assistant_message)
+class OneCallChain:
+    def __init__(self, llm, system_message: str = "你是一个通用的生活助理，能回答所有生活中的问题"):
+        system_prompt = SystemMessagePromptTemplate.from_template(system_message)
         human_prompt = HumanMessagePromptTemplate.from_template("请回答问题: {question}")
 
         chat_prompt = ChatPromptTemplate.from_messages([system_prompt,human_prompt])

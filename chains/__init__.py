@@ -1,1 +1,1 @@
-from .assistant_chain import AssistantChain
+from .one_call_chain import OneCallChain

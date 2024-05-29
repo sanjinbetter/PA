@@ -9,7 +9,7 @@ class OpenAIModel(BaseModel):
         self.verbose = verbose
 
 
-    def create_chat_model(self, model_name: str, verbose: bool = True):
+    def create_chat_model(self, model_name: str = "gpt-3.5-turbo", verbose: bool = True):
 
         return ChatOpenAI(
             model_name = model_name if model_name is not None else self.model_name,

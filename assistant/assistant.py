@@ -7,6 +7,7 @@ from chains import OneCallChain
 """
 助手类，负责接收输入，调用链，返回输出。
 后续可以保存聊天记录、链路由等
+
 """
 class Assistant:
     def __init__(self, system_message: str="你是一个通用的生活助理，能回答所有生活中的问题") -> None:
